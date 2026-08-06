@@ -3,7 +3,7 @@ import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
 
-import Whatsapp from "@/components/Whatsapp";
+// import Whatsapp from "@/components/Whatsapp";
 
 // Roboto
 const roboto = Roboto({
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
 
       <body className={`${roboto.variable} ${poppins.variable} antialiased`}>
      
-    <Whatsapp/>
+    {/* <Whatsapp/> */}
         <LayoutWrapper>
         
       
