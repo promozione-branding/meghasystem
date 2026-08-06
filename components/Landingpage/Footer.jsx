@@ -53,7 +53,7 @@ export default function Footer() {
 
 
 
-        <div className="mx-auto mt-24 max-w-7xl px-6 pb-10">
+        <div className="mx-auto mt-13 max-w-7xl px-6 pb-10">
 
           <div className="grid gap-14 lg:grid-cols-5">
 
@@ -68,7 +68,7 @@ export default function Footer() {
                 height={60}
               />
 
-              <p className="mt-8 max-w-md leading-8 text-white/65">
+              <p className="mt-8 max-w-md leading-8 text-white">
 
                 We manufacture premium compact laminate toilet cubicles,
                 urinal partitions and washroom accessories for corporate,
@@ -86,7 +86,7 @@ export default function Footer() {
 
                   </h3>
 
-                  <p className="mt-1 text-sm text-white/60">
+                  <p className="mt-1 text-sm text-white">
 
                     Projects
 
@@ -102,7 +102,7 @@ export default function Footer() {
 
                   </h3>
 
-                  <p className="mt-1 text-sm text-white/60">
+                  <p className="mt-1 text-sm text-white">
 
                     Years
 
@@ -118,7 +118,7 @@ export default function Footer() {
 
                   </h3>
 
-                  <p className="mt-1 text-sm text-white/60">
+                  <p className="mt-1 text-sm text-white">
 
                     India
 
@@ -153,7 +153,7 @@ export default function Footer() {
                   <Link
                     key={item}
                     href="/"
-                    className="block text-white/65 transition hover:text-[#C89A56]"
+                    className="block text-white transition hover:text-[#C89A56]"
                   >
                     {item}
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                   <Link
                     key={item}
                     href="/"
-                    className="block text-white/65 transition hover:text-[#C89A56]"
+                    className="block text-white transition hover:text-[#C89A56]"
                   >
                     {item}
                   </Link>
@@ -219,13 +219,13 @@ export default function Footer() {
 
                   <div>
 
-                    <p className="text-white/60">
+                    <p className="text-white">
 
                       +91 98765 43210
 
                     </p>
 
-                    <p className="text-white/60">
+                    <p className="text-white">
 
                       +91 98765 43210
 
@@ -242,7 +242,7 @@ export default function Footer() {
                     size={20}
                   />
 
-                  <p className="text-white/60">
+                  <p className="text-white">
 
                     info@yourcompany.com
 
@@ -257,7 +257,7 @@ export default function Footer() {
                     size={20}
                   />
 
-                  <p className="leading-7 text-white/60">
+                  <p className="leading-7 text-white">
 
                     Plot No. XX, Industrial Area,
                     New Delhi, India
@@ -362,7 +362,7 @@ export default function Footer() {
 
     {/* Copyright */}
 
-    <p className="text-center text-sm text-white/60 md:text-left">
+    <p className="text-center text-sm text-white md:text-left">
       © {new Date().getFullYear()} <span className="text-[#C89A56] font-medium">Megha Systems</span>. All Rights Reserved.
     </p>
 
@@ -372,7 +372,7 @@ export default function Footer() {
 
       <Link
         href="/privacy-policy"
-        className="transition hover:text-[#C89A56] text-white/60"
+        className="transition hover:text-[#C89A56] text-white"
       >
         Privacy Policy
       </Link>
@@ -381,7 +381,7 @@ export default function Footer() {
 
       <Link
         href="/terms-conditions"
-        className="transition hover:text-[#C89A56] text-white/60"
+        className="transition hover:text-[#C89A56] text-white"
       >
         Terms & Conditions
       </Link>
@@ -390,7 +390,7 @@ export default function Footer() {
 
       <Link
         href="/sitemap.xml"
-        className="transition hover:text-[#C89A56] text-white/60"
+        className="transition hover:text-[#C89A56] text-white"
       >
         Sitemap
       </Link>
@@ -435,7 +435,7 @@ export default function Footer() {
 
   <div className="border-t border-[#6b5336]/20 bg-[#130F0D] py-3">
 
-    <p className="text-center text-xs tracking-wide text-white/50">
+    <p className="text-center text-xs tracking-wide text-white/70">
 
       Designed & Developed with ❤️ by    Inquiry Bazaar pvt ltd {" "}
 

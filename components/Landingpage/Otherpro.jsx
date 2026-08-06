@@ -11,27 +11,27 @@ import "swiper/css/pagination";
 const industries = [
   {
     title: "Corporate Offices",
-    image: "/industries/corporate.webp",
+    image: "/corporateindus.jpg",
   },
   {
     title: "Hospitals",
-    image: "/industries/hospital.webp",
+    image: "/hospitalindus.avif",
   },
   {
     title: "Educational Institutes",
-    image: "/industries/school.webp",
+    image: "/indus1.jpg",
   },
   {
     title: "Hotels & Resorts",
-    image: "/industries/hotel.webp",
+    image: "/hotelsindus.webp",
   },
   {
     title: "Shopping Malls",
-    image: "/industries/mall.webp",
+    image: "/mallsindus.webp",
   },
   {
     title: "Airports & Metro",
-    image: "/industries/airport.webp",
+    image: "/metroindus.jpg",
   },
 ];
 

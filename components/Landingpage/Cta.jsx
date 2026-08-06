@@ -13,14 +13,16 @@ import { motion } from "framer-motion";
 const Cta = () => {
   return (
     <div>
-        <div style={{backgroundImage:"url(/check3.jpg)"}} className="mx-auto w-full bg-cover bg-center bg-no-repeat px-6 py-6  lg:px-8">
+        <div style={{backgroundImage:"url(/ctabg.jpeg)"}} className="mx-auto relative w-full bg-cover bg-center bg-no-repeat px-6 py-8  lg:px-8">
       
+<div className='absolute inset-0 bg-[#241B16]/30'></div>
+    
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: .7 }}
-                  className="relative overflow-hidden border border-[#6b5336] bg-[#2A211C] px-18 py-10"
+                  className="relative overflow-hidden border border-[#6b5336] bg-[#2A211C] px-18 py-9 rounded-md"
                 >
       
                   <div className="absolute inset-0 bg-gradient-to-r from-[#C89A56]/10 via-transparent to-[#C89A56]/10" />

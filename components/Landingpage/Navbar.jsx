@@ -92,17 +92,16 @@ export default function Navbar() {
             
             </Link>
 
-            {/* ================= Desktop Menu ================= */}
 
-            <nav className="hidden xl:flex items-center">
+            <nav className="hidden xl:flex items-center list-none">
 
-              <ul className="flex items-center">
+              <ul className="flex items-center list-none">
 
                 {navLinks.map((item, index) => (
 
                   <li
                     key={index}
-                    className="relative"
+                    className="relative list-none "
                     onMouseEnter={() => {
                       if (item.type === "products")
                         setProductOpen(true);
@@ -218,7 +217,7 @@ export default function Navbar() {
 
             </nav>
 
-            {/* ================= Right ================= */}
+   
 
             <div className="hidden xl:flex items-center gap-6">
 

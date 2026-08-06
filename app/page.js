@@ -21,7 +21,7 @@ import Loactions from "@/components/Locations";
 export default function Home() {
   return (
     <>
-      <Popup></Popup>
+      {/* <Popup></Popup> */}
       <Hero />
        <Countup />
      
