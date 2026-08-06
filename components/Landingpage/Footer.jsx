@@ -34,8 +34,7 @@ export default function Footer() {
       />
 
       {/* Ambient Glow */}
-
-      <div className="absolute left-0 top-0 h-[450px] w-[450px] rounded-full bg-[#C89A56]/10 blur-[170px]" />
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
 
       <div className="absolute right-0 bottom-0 h-[450px] w-[450px] rounded-full bg-[#C89A56]/10 blur-[170px]" />
 
@@ -47,79 +46,14 @@ export default function Footer() {
 
         {/* ================= CTA ================= */}
 
-        <div className="mx-auto max-w-7xl px-6 pt-24">
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: .7 }}
-            className="relative overflow-hidden rounded-[30px] border border-[#6b5336] bg-[#2A211C] px-10 py-16"
-          >
-
-            <div className="absolute inset-0 bg-gradient-to-r from-[#C89A56]/10 via-transparent to-[#C89A56]/10" />
-
-            <div className="relative flex flex-col items-center justify-between gap-8 lg:flex-row">
-
-              <div>
-
-                <span className="uppercase tracking-[4px] text-[#C89A56] text-sm">
-
-                  Let's Build Together
-
-                </span>
-
-                <h2 className="mt-4 text-4xl lg:text-5xl font-light">
-
-                  Ready to Transform
-                  <br />
-                  Your Washroom Space?
-
-                </h2>
-
-                <p className="mt-6 max-w-xl text-white/70 leading-8">
-
-                  Partner with India's trusted manufacturer of compact
-                  laminate toilet cubicles, urinal partitions and
-                  premium washroom accessories.
-
-                </p>
-
-              </div>
-
-              <div className="flex flex-wrap gap-5">
-
-                <button className="group flex h-16 items-center gap-3 rounded-xl bg-[#C89A56] px-8 font-medium transition hover:bg-[#b78747]">
-
-                  Get Free Quote
-
-                  <ArrowRight
-                    className="transition group-hover:translate-x-1"
-                  />
-
-                </button>
-
-                <button className="group flex h-16 items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-8 backdrop-blur-md transition hover:border-[#C89A56]">
-
-                  Download Catalogue
-
-                  <Download
-                    className="transition group-hover:-translate-y-1"
-                  />
-
-                </button>
-
-              </div>
-
-            </div>
-
-          </motion.div>
-
-        </div>
+      
 
         {/* ================= Main Footer ================= */}
 
-        <div className="mx-auto mt-24 max-w-7xl px-6 pb-20">
+
+
+
+        <div className="mx-auto mt-24 max-w-7xl px-6 pb-10">
 
           <div className="grid gap-14 lg:grid-cols-5">
 
@@ -409,6 +343,113 @@ export default function Footer() {
         </div>
 
       </div>
+
+
+
+
+
+
+
+{/* ================= Bottom Bar ================= */}
+
+<div className="relative border-t border-[#6b5336]/40 bg-[#171210]">
+
+  {/* Top Glow */}
+
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
+
+  <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-6 md:flex-row">
+
+    {/* Copyright */}
+
+    <p className="text-center text-sm text-white/60 md:text-left">
+      © {new Date().getFullYear()} <span className="text-[#C89A56] font-medium">Megha Systems</span>. All Rights Reserved.
+    </p>
+
+    {/* Links */}
+
+    <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+
+      <Link
+        href="/privacy-policy"
+        className="transition hover:text-[#C89A56] text-white/60"
+      >
+        Privacy Policy
+      </Link>
+
+      <span className="h-4 w-px bg-[#6b5336]" />
+
+      <Link
+        href="/terms-conditions"
+        className="transition hover:text-[#C89A56] text-white/60"
+      >
+        Terms & Conditions
+      </Link>
+
+      <span className="h-4 w-px bg-[#6b5336]" />
+
+      <Link
+        href="/sitemap.xml"
+        className="transition hover:text-[#C89A56] text-white/60"
+      >
+        Sitemap
+      </Link>
+
+    </div>
+
+    {/* Social Icons */}
+
+    <div className="flex items-center gap-3">
+
+      {[
+        { icon: Facebook, href: "#" },
+        { icon: Instagram, href: "#" },
+        { icon: Linkedin, href: "#" },
+        { icon: Youtube, href: "#" },
+      ].map((item, index) => {
+
+        const Icon = item.icon;
+
+        return (
+
+          <Link
+            key={index}
+            href={item.href}
+            className="group flex h-10 w-10 items-center justify-center rounded-full border border-[#6b5336] bg-[#221A16] transition-all duration-300 hover:border-[#C89A56] hover:bg-[#C89A56]"
+          >
+            <Icon
+              size={18}
+              className="text-[#C89A56] transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+            />
+          </Link>
+
+        );
+
+      })}
+
+    </div>
+
+  </div>
+
+  {/* Developer Credit */}
+
+  <div className="border-t border-[#6b5336]/20 bg-[#130F0D] py-3">
+
+    <p className="text-center text-xs tracking-wide text-white/50">
+
+      Designed & Developed with ❤️ by    Inquiry Bazaar pvt ltd {" "}
+
+      <a href="https://www.inquirybazaar.com" target="_blank" rel="noopener noreferrer" className="font-medium underline text-[#C89A56]">
+    B2B Marketplace
+      </a>
+
+    </p>
+
+  </div>
+
+</div>
+
+
 
     </footer>
   );

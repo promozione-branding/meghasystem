@@ -24,12 +24,15 @@ export default function Home() {
       <Popup></Popup>
       <Hero />
        <Countup />
+     
             <Categories />
+            
             <Whychoose />
               <Process></Process>
+                <Cta></Cta>
               <Otherproduct></Otherproduct>
          <TestimonialSlider></TestimonialSlider>
-      {/* <Cta></Cta>
+      {/* 
       <About />
       <Pointer></Pointer>
      

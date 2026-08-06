@@ -16,7 +16,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    unoptimized: true, // Important for Next 15 static images
+    unoptimized: true, 
     remotePatterns: [
       {
         protocol: "https",
@@ -25,7 +25,7 @@ const nextConfig = {
     ],
     localPatterns: [
       {
-        pathname: "/**", // allow ALL public images
+        pathname: "/**", 
         search: "",
       },
     ],
