@@ -20,7 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: " meghasystem",
+  title: "meghasystem",
   description:
     "meghasystem.",
    icons: {

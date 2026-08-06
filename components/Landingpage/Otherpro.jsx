@@ -1,68 +1,142 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 
-const products = [
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+const industries = [
   {
-    title: "Plastic Dustbin",
-    image: "/bag/Plastic-Dustbin.webp", 
-    href:"https://plasticdustbinmanufacturer.com/"
+    title: "Corporate Offices",
+    image: "/industries/corporate.webp",
   },
   {
-    title: "Sharp Container",
-    image: "/bag/Sharp-Container.webp",
-    href:"https://sharpcontainermanufacturer.com/"
+    title: "Hospitals",
+    image: "/industries/hospital.webp",
   },
   {
-    title: "Needle Cutter",
-    image: "/bag/Needle-Cutter.webp",
-    href:"https://sharpcontainermanufacturer.com/needle-cutter"
+    title: "Educational Institutes",
+    image: "/industries/school.webp",
   },
   {
-    title: "Wringer Trolley",
-    image: "/bag/18-L-Double-Bucket-Wringer-Trolley.webp",
-    href:"https://wringertrolleymanufacturer.com/"
+    title: "Hotels & Resorts",
+    image: "/industries/hotel.webp",
+  },
+  {
+    title: "Shopping Malls",
+    image: "/industries/mall.webp",
+  },
+  {
+    title: "Airports & Metro",
+    image: "/industries/airport.webp",
   },
 ];
 
-export default function ProductsManufacturing() {
+export default function Industries() {
   return (
-    <section className="py-6 md:py-10 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative bg-[#221A16] py-9 overflow-hidden">
 
-        {/* Heading */}
-        <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-7 md:mb-11">
-          <span className="text-black">OUR </span>
-          <span className="text-green-600">PRODUCTS MANUFACTURING</span>
-        </h2>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,154,86,.08),transparent_70%)]" />
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((item, index) => (
-            <Link
-            href={item.href}
-              key={index}
-              className="border border-green-600 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition duration-300 bg-white"
-            >
-              {/* Image Area */}
-              <div className="bg-white  flex items-center justify-center ">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={500}
-                  height={400}
-                  className="object-cover h-full w-full"
-                />
-              </div>
+      <div className="w-full mx-auto px-18 relative">
 
-              {/* Bottom Title Bar */}
-              <div className="bg-green-600 text-white text-center py-4 text-lg font-semibold">
-                {item.title}
-              </div>
-            </Link>
-          ))}
+        <div className="text-center mb-16">
+
+          <span className="uppercase tracking-[5px] text-[#C89A56]">
+            Industries
+          </span>
+
+          <h2 className="mt-3 text-5xl text-white font-light">
+            Industries We Serve
+          </h2>
+
+          <p className="mt-6 text-white/60 max-w-2xl mx-auto">
+            Delivering premium compact laminate washroom systems for
+            diverse commercial, institutional and public infrastructure
+            projects.
+          </p>
+
         </div>
+
+    <Swiper
+  modules={[Autoplay, Pagination]}
+  loop
+  speed={800}
+  spaceBetween={30}
+  autoplay={{
+    delay: 2500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  pagination={{
+    clickable: true,
+  }}
+  breakpoints={{
+    0: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  }}
+  className="pb-14"
+>
+  {industries.map((item, index) => (
+    <SwiperSlide key={index}>
+      <div className="group relative h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#221A16]">
+
+        {/* Image */}
+
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+
+        {/* Overlay */}
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+        {/* Content */}
+
+        <div className="absolute bottom-0 left-0 p-8">
+
+          <span className="rounded-full border border-[#C89A56]/30 bg-black/30 px-4 py-2 text-xs uppercase tracking-[3px] text-[#C89A56] backdrop-blur-md">
+            Industry
+          </span>
+
+          <h3 className="mt-5 text-3xl font-light text-white">
+            {item.title}
+          </h3>
+
+          <p className="mt-3 text-white/70 leading-7">
+            {item.desc}
+          </p>
+
+          <button className="mt-7 flex items-center gap-2 text-[#C89A56] font-medium transition-all group-hover:gap-4">
+            Explore
+            <ArrowUpRight size={18} />
+          </button>
+
+        </div>
+
+        {/* Bottom Gold Line */}
+
+        <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#C89A56] transition-all duration-500 group-hover:w-full" />
+
       </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+      </div>
+
     </section>
   );
 }

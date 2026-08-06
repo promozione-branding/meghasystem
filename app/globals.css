@@ -33,3 +33,43 @@ ol {
   list-style-type: decimal;
   padding-left: 1.5rem;
 }
+
+
+
+
+
+
+.swiper-pagination-bullet{
+width:10px;
+height:10px;
+background:#ffffff55;
+opacity:1;
+transition:.3s;
+}
+
+.swiper-pagination-bullet-active{
+width:36px;
+border-radius:20px;
+background:#C89A56;
+}
+
+
+
+.testimonialSwiper .swiper-pagination{
+    position:relative;
+    margin-top:35px;
+}
+
+.testimonialSwiper .swiper-pagination-bullet{
+    width:10px;
+    height:10px;
+    background:#ffffff40;
+    opacity:1;
+    transition:.3s;
+}
+
+.testimonialSwiper .swiper-pagination-bullet-active{
+    width:30px;
+    border-radius:999px;
+    background:#C89A56;
+}

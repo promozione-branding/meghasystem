@@ -1,121 +1,177 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-const data = [
+const products = [
   {
-    title: "Plastic Disposable Garbage Bag",
-    desc: "Bags designed for segregation of household waste via optical colour sorting.",
-    image: "/new/red garba.webp",
-    href: "/categories/disposable-garbage-bags",
+    title: "Neo",
+    desc: "Economical & Elegant",
+    image: "/1pro.avif",
   },
   {
-    title: "Biodegradable Garbage Bags",
-    desc: "Bags designed for institutional use, easy to dispense one by one.",
-    image: "/new/green.webp",
-    href: "/categories/biodegradable-garbage-bags",
+    title: "Maxi",
+    desc: "Strong & Stylish",
+    image: "/2pro.jfif",
   },
   {
-    title: "Plastic Small Degradable Garbage Bag",
-    desc: "Eco friendly biodegradable garbage bags for sustainable waste disposal.",
-    image: "/new/white (1).webp",
-    href: "/categories/disposable-garbage-bags",
+    title: "Maxi Pro",
+    desc: "Premium Performance",
+    image: "/3pro.jfif",
   },
   {
-    title: "Compostable Biodegradable garbage bags",
-    desc: "Heavy duty plastic garbage bags for construction and commercial use.",
-    image: "/new/red (2).webp",
-    href: "/categories/biomedical-garbage-bags",
+    title: "Duro",
+    desc: "Heavy Duty Cubicles",
+  image: "/1pro.avif",
   },
+  {
+    title: "Duro Pro",
+    desc: "Extra Strength & Durability",
+  image: "/mall-toilet-cubicle.png",
+  },
+  
 ];
 
-export default function ProductCards() {
+export default function PremiumSeries() {
   return (
-    <section
-      style={{ backgroundImage: "url(/bag/aboutbg.webp)" }}
-      className="w-full bg-contain bg-[#F8F9F4] bg-no-repeat relative py-7 md:py-12"
-    >
-      {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-7 md:mb-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-6">
-        <h2 className="text-black text-3xl md:text-[50px] font-bold">
-          Our Products
-        </h2>
+    <section className="relative overflow-hidden bg-[#241B16] py-20">
 
-        <Link
-          href="/products"
-          className="border-2 bg-[#557C73] text-white px-6 py-3 rounded-full font-medium hover:bg-[#557C73] transition duration-300"
-        >
-          Explore All Products
-        </Link>
+      {/* Background Texture */}
+
+      <div
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      />
+
+      {/* Gold Accent */}
+
+      <div className="absolute left-1/2 top-0 h-[2px] w-28 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
+
+      <div className="relative mx-auto w-full px-16">
+
+        {/* Heading */}
+
+        <div className="mb-14 text-center">
+
+          <span className="text-sm uppercase tracking-[4px] text-[#C89A56]">
+            Our Collection
+          </span>
+
+          <h2 className="mt-3 text-4xl md:text-5xl font-light text-white">
+            OUR PREMIUM CUBICLE SERIES
+          </h2>
+
+        </div>
+
+        {/* Cards */}
+
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+
+          {products.map((item, index) => (
+
+         <motion.div
+  key={index}
+  initial={{
+    opacity: 0,
+    y: 60,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  whileHover={{
+    y: -12,
+  }}
+  transition={{
+    duration: 0.6,
+    delay: index * 0.08,
+  }}
+  viewport={{ once: true }}
+  className="group relative overflow-hidden rounded-2xl border border-[#6f5737]/60 bg-[#2A211C] shadow-[0_15px_35px_rgba(0,0,0,.25)] hover:border-[#C89A56]/70 hover:shadow-[0_25px_60px_rgba(0,0,0,.45)] transition-all duration-500"
+>
+ 
+
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
+
+    <div className="absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[#C89A56]/15 blur-[90px]" />
+
+  </div>
+
+  {/* Shine Animation */}
+
+  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-[1300ms] group-hover:translate-x-full z-30"></span>
+
+  {/* Image */}
+
+  <div className="relative h-[230px] overflow-hidden">
+
+    <Image
+      src={item.image}
+      alt={item.title}
+      fill
+      className="object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+
+    {/* Image Overlay */}
+
+    
+
+    {/* Gold Border */}
+
+    <div className="absolute inset-0 border border-transparent group-hover:border-[#C89A56]/30 rounded-t-2xl transition-all duration-500" />
+
+  </div>
+
+  {/* Content */}
+
+  <div className="relative px-5 py-6 text-center">
+
+    <h3 className="text-[30px] font-light text-white transition-colors duration-500 group-hover:text-[#E6D2A8]">
+      {item.title}
+    </h3>
+
+    <p className="mt-2 min-h-[50px] text-[15px] leading-7 text-white/65">
+      {item.desc}
+    </p>
+
+    {/* Explore */}
+
+    <button className="mt-6 inline-flex items-center gap-2 font-medium text-[#C89A56] transition-all duration-300">
+
+      <span className="relative">
+
+        Explore
+
+        <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-[#C89A56] transition-all duration-500 group-hover:w-full"></span>
+
+      </span>
+
+      <ArrowRight
+        size={18}
+        className="transition-all duration-300 group-hover:translate-x-2"
+      />
+
+    </button>
+
+  </div>
+
+  {/* Bottom Gold Line */}
+
+  <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#C89A56] transition-all duration-500 group-hover:w-full"></div>
+
+</motion.div>
+
+          ))}
+
+        </div>
+
       </div>
 
-      {/* CARDS GRID */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 md:gap-10">
-        {data.map((item, i) => (
-          <motion.div
-            key={i}
-            className="flex flex-col sm:flex-row rounded-[28px] overflow-hidden shadow-sm group"
-          >
-            {/* LEFT IMAGE */}
-            <div className="relative w-full sm:w-[45%] min-h-[230px]  bg-[#557C73] overflow-hidden">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.4 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-            </div>
-
-            {/* RIGHT CONTENT */}
-            <div className="w-full sm:w-[55%] relative px-6 sm:px-10 py-6 md:py-8 flex flex-col justify-between">
-              <div>
-                <h3 className="text-xl sm:text-[24px] font-semibold text-[#557C73] mb-3 sm:mb-4 tracking-wide">
-                  {item.title}
-                </h3>
-
-                <p className="text-black text-sm sm:text-[15px] leading-relaxed">
-                  {item.desc}
-                </p>
-
-                {/* Decorative Blob */}
-                <div className="absolute top-3 right-2 sm:top-4 sm:right-1 w-20 sm:w-28 h-20 sm:h-28 opacity-40 pointer-events-none">
-                  <div className="absolute inset-0 bg-[#557C73] p-5 mix-blend-multiply rounded-full" />
-                  <Image
-                    src="/bag/blob.png"
-                    alt="blob"
-                    fill
-                    className="object-contain p-2"
-                  />
-                </div>
-              </div>
-
-              {/* CTA */}
-              <Link
-                href={item.href}
-                className="flex items-center justify-between mt-6 sm:mt-10"
-              >
-                <p className="text-[#557C73] border-2 p-2 capitalize text-sm sm:text-md tracking-wider font-medium">
-                  explore product
-                </p>
-
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#A3C94C] flex items-center justify-center">
-                  <span className="material-symbols-outlined text-[#A3C94C] text-sm sm:text-base">
-                    east
-                  </span>
-                </div>
-              </Link>
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </section>
   );
 }

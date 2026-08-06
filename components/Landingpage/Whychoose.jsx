@@ -37,10 +37,10 @@ export default function WhyChoose() {
 
       {/* Background Texture */}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.22]"
         style={{
           backgroundImage:
-            "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
+            "url('/check2.jpg')",
         }}
      
       />

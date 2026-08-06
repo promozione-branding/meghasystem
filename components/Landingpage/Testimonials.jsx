@@ -1,118 +1,288 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import Image from "next/image";
+import { Quote } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+
+import "swiper/css";
+import "swiper/css/pagination";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {  Plus, Minus } from "lucide-react";
+import { useState } from "react";
 
 const testimonials = [
   {
-    text: "We are incredibly impressed with Polywell's range of waste management solutions. The dustbins are robust and versatile, accommodating various types of waste with ease. Our municipality has benefited greatly from the efficient garbage rickshaws, which streamline waste collection in our urban areas. Polywell's wheelbarrows and garbage bags are essential tools in our daily operations.",
-    name: "GURDIP SINGH",
-    designation: "A.G International",
+    name: "Rajeev Sharma",
+    designation: "Facility Manager, ICAT",
+    image: "/testimonials/client1.webp",
+    review:
+      "Megha Systems delivered exceptional quality and installation for our corporate office project. Their team was professional, punctual and reliable.",
   },
   {
-    text: "Polywell's waste management products have transformed our operations. Their durable Pedal/Wheeled dustbins withstand heavy usage and harsh weather, ensuring efficient waste collection. The garbage rickshaws are a boon for our workers, enabling swift and organized garbage pickup. With Polywell's wheelbarrows and garbage bags, our waste management process has never been more effective.",
-    name: "SACHIN GUPTA",
-    designation: "PSV Biotech Pvt Ltd.",
+    name: "Amit Verma",
+    designation: "Project Head, Tata Consulting",
+    image: "/testimonials/client2.webp",
+    review:
+      "Outstanding workmanship and timely execution. The entire installation process was smooth and exceeded our expectations.",
   },
   {
-    text: "Polywell's commitment to excellence shines through in their waste management products. The dustbins are not only sturdy but also aesthetically pleasing, enhancing the cleanliness of our public spaces. Our waste collection teams rely on the reliable garbage rickshaws, which navigate narrow streets effortlessly. With Polywell's wheelbarrows and garbage bags, waste disposal has become a breeze.",
-    name: "MEHUL VOHRA",
-    designation: "Medikit Products",
+    name: "Neha Kapoor",
+    designation: "Procurement Manager, HSBC",
+    image: "/testimonials/client3.webp",
+    review:
+      "Excellent product quality with elegant finish. Their after-sales support is equally impressive.",
   },
 ];
 
 
-export default function TestimonialSlider() {
-  const [index, setIndex] = useState(0);
 
-  // Auto-slide every 5s
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
-  const prevSlide = () => {
-    setIndex(index === 0 ? testimonials.length - 1 : index - 1);
-  };
+const faqs = [
+  {
+    question: "What material do you use for toilet cubicles?",
+    answer:
+      "We use premium Compact Laminate (HPL) panels with anodized aluminium hardware and stainless-steel fittings for maximum durability, moisture resistance and long service life.",
+  },
+  {
+    question: "Can you customize cubicles as per our requirements?",
+    answer:
+      "Yes. Every project can be customized in terms of size, color, layout, hardware and accessories according to your architectural drawings.",
+  },
+  {
+    question: "Do you provide installation across India?",
+    answer:
+      "Absolutely. Our experienced installation teams undertake projects across India with complete supervision and quality assurance.",
+  },
+  {
+    question: "What is the delivery time?",
+    answer:
+      "Most standard projects are delivered within 2–4 weeks depending upon project size and customization.",
+  },
+  {
+    question: "Do you provide after sales support?",
+    answer:
+      "Yes. We provide complete after-sales service including maintenance support and replacement of hardware whenever required.",
+  },
+];
 
-  const nextSlide = () => {
-    setIndex((index + 1) % testimonials.length);
-  };
 
-  const current = testimonials[index];
+export default function TestimonialFaq() {
 
+
+  const [active, setActive] = useState(0);
   return (
+    <section className="relative overflow-hidden bg-[#211A16] py-24">
 
-    <>
-    
-    <section className="relative h-full w-full  bg-[url('/bag/leafbg.webp')] bg-cover bg-fixed  bg-center py-8 md:py-16 text-white">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#08372C]/20"></div>
+      {/* Background Texture */}
 
-      <div className="relative max-w-5xl mx-auto text-center px-6">
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-12">
-          <span className="text-white">Our Testimonials</span>
-        
-        </h2>
+      <div
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      />
 
-        {/* Testimonial Content */}
-        <AnimatePresence mode="wait">
+      {/* Gold Accent */}
+
+      <div className="absolute left-1/2 top-0 h-[2px] w-28 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+
+        <div className="grid gap-8 lg:grid-cols-2">
+
+          {/* Left Panel */}
+
           <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: .7 }}
+            viewport={{ once: true }}
+            className="rounded-[24px] border border-[#6f5737]/50 bg-[#2A211C] p-8 lg:p-10"
           >
-            <p className="italic text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              {current.text}
-            </p>
 
-            {/* Profile */}
-            <div className="flex flex-col items-center">
-           
-              <h4 className="text-lg font-semibold">{current.name}</h4>
-            </div>
+            <span className="text-[#C89A56] uppercase tracking-[3px] text-sm">
+              What Our Clients Say
+            </span>
+
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              loop
+              className="testimonialSwiper mt-8"
+            >
+
+              {testimonials.map((item, index) => (
+
+                <SwiperSlide key={index}>
+
+                  <Quote
+                    size={60}
+                    fill="#C89A56"
+                    className="text-[#C89A56]"
+                  />
+
+                  <p className="mt-6 text-lg leading-9 text-white/80">
+
+                    {item.review}
+
+                  </p>
+
+                  <div className="mt-10 flex items-center gap-5">
+
+                    <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-[#C89A56]/40">
+
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                      />
+
+                    </div>
+
+                    <div>
+
+                      <h4 className="text-xl font-medium text-white">
+
+                        {item.name}
+
+                      </h4>
+
+                      <p className="mt-1 text-[#C89A56]">
+
+                        {item.designation}
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </SwiperSlide>
+
+              ))}
+
+            </Swiper>
+
           </motion.div>
+
+          {/* FAQ Panel */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: .7 }}
+            viewport={{ once: true }}
+            className="rounded-[24px] border border-[#6f5737]/50 bg-[#2A211C] p-8 lg:p-10"
+          >
+
+            <span className="text-[#C89A56] uppercase tracking-[3px] text-sm">
+              Frequently Asked Questions
+            </span>
+
+       <div className="mt-8 space-y-4">
+
+  {faqs.map((faq, index) => {
+
+    const open = active === index;
+
+    return (
+
+      <div
+        key={index}
+        className="overflow-hidden rounded-xl border border-[#6f5737]/50 bg-[#241D18]"
+      >
+
+        <button
+          onClick={() => setActive(open ? -1 : index)}
+          className="flex w-full items-center justify-between px-6 py-5 text-left transition-all duration-300 hover:bg-[#2d241d]"
+        >
+
+          <span className="text-lg text-white font-medium">
+
+            {faq.question}
+
+          </span>
+
+          <motion.div
+            animate={{
+              rotate: open ? 180 : 0,
+            }}
+            transition={{
+              duration: .3,
+            }}
+            className="text-[#C89A56]"
+          >
+
+            {open ? (
+              <Minus size={22} />
+            ) : (
+              <Plus size={22} />
+            )}
+
+          </motion.div>
+
+        </button>
+
+        <AnimatePresence>
+
+          {open && (
+
+            <motion.div
+              initial={{
+                height: 0,
+                opacity: 0,
+              }}
+              animate={{
+                height: "auto",
+                opacity: 1,
+              }}
+              exit={{
+                height: 0,
+                opacity: 0,
+              }}
+              transition={{
+                duration: .35,
+              }}
+              className="overflow-hidden"
+            >
+
+              <p className="px-6 pb-6 text-white/70 leading-8">
+
+                {faq.answer}
+
+              </p>
+
+            </motion.div>
+
+          )}
+
         </AnimatePresence>
 
-        {/* Controls */}
-        <div className="absolute top-1/2 left-6 -translate-y-1/2">
-          <button
-            onClick={prevSlide}
-            className="bg-white/20 hover:bg-white/40 p-3 rounded-full transition"
-          >
-            <ChevronLeft className="w-6 h-6 text-blue-500" />
-          </button>
-        </div>
-        <div className="absolute top-1/2 right-6 -translate-y-1/2">
-          <button
-            onClick={nextSlide}
-            className="bg-white/20 hover:bg-white/40 p-3 rounded-full transition"
-          >
-            <ChevronRight className="w-6 h-6 text-blue-500" />
-          </button>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {testimonials.map((_, i) => (
-            <div
-              key={i}
-              className={`w-3 h-3 rounded-full transition ${
-                i === index ? "bg-[#176BB0]" : "bg-gray-400"
-              }`}
-            ></div>
-          ))}
-        </div>
       </div>
+
+    );
+
+  })}
+
+</div>
+
+          </motion.div>
+
+        </div>
+
+      </div>
+
     </section>
-
-
-    </>
   );
 }
