@@ -254,9 +254,7 @@ export default function Hero() {
     variants={fadeUp}
     className="mt-6 max-w-2xl text-lg md:text-xl leading-9 text-white"
   >
-    India's trusted manufacturer of compact laminate toilet cubicles,
-    urinal partitions and premium washroom accessories engineered for
-    commercial, institutional and luxury architectural projects.
+    Manufacturing premium toilet cubicles, urinal partitions, shower cubicles, compact laminate systems, and washroom accessories tailored to your project requirements across India.
   </motion.p>
 
   {/* Buttons */}

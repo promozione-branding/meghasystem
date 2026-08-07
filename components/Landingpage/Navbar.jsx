@@ -71,22 +71,23 @@ export default function Navbar() {
         <div className="mx-auto max-w-[1450px] px-6">
           <div className="flex h-[95px] items-center justify-between">
 
-            {/* ================= Logo ================= */}
 
             <Link
               href="/"
-              className="flex items-center gap-3 shrink-0"
+              className="flex items-center gap-3 "
             >
-              <div className="relative h-12 w-12">
+              <div className="relative h-full w-full">
 
-                {/* Replace with your logo */}
+               
 
-                <Image
-                  src="/logo.jpeg"
-                  alt="Logo"
-                  fill
-                  className="object-contain"
-                />
+             <Image
+  src="/logo.png"
+  alt="Logo"
+  width={200}
+  height={148}
+  className="w-auto h-12 object-cover"
+  priority
+/>
               </div>
 
             
@@ -142,8 +143,7 @@ export default function Navbar() {
 
                     <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ad67] transition-all duration-300 group-hover:w-full"></span>
 
-                    {/* Products Dropdown */}
-
+                   
                     {item.type === "products" &&
                       productOpen && (
                         <div className="absolute left-0 top-full w-[280px] rounded-xl border border-[#6d5330] bg-[#241b15] p-3 shadow-2xl">
@@ -179,7 +179,7 @@ export default function Navbar() {
                         </div>
                       )}
 
-                    {/* Resources Dropdown */}
+                   
 
                     {item.type === "resources" &&
                       resourceOpen && (
@@ -241,7 +241,7 @@ export default function Navbar() {
 
             </div>
 
-            {/* Mobile Button */}
+     
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
