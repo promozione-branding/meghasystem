@@ -1,174 +1,176 @@
-import React from "react";
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import Reveal from "./Reveal";
-import {
-  Building2,
-  Stethoscope,
-  ShoppingCart,
-  Store,
-  Warehouse,
-} from "lucide-react";
-import Addons from "./Addons";
-const About = () => {
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
+export default function AboutSection() {
 
+const images = [
+  "/hospitalindus.avif",
+  "/corporateindus.jpg",
+  "/hotelsindus.webp",
 
-  // who we work with data
-
-  const partners = [
-  {
-    title: "Government Hospital Tenders Bidders & Project Contractors",
-    icon: Building2,
-  },
-  {
-    title: "Private Hospital Purchase & Procurement Teams",
-    icon: Stethoscope,
-  },
-  {
-    title: "GeM Portal Institutional Procurement Buyers",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Retailers & Wholesale Distributors",
-    icon: Store,
-  },
-  {
-    title: "Municipal Corporations & Urban Local Bodies",
-    icon: Warehouse,
-  },
-
-   {
-    title: "Facility Management & Waste Handling Companies",
-    icon: Warehouse,
-  },
 ];
 
 
+return (
+  <section className="relative overflow-hidden bg-[#211A16] py-24">
+    {/* Background Pattern */}
 
+    <div
+      className="absolute inset-0 opacity-[0.04]"
+      style={{
+        backgroundImage:
+          "radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px)",
+        backgroundSize: "18px 18px",
+      }}
+    />
 
+    {/* Ambient Glow */}
 
+    <div className="absolute left-0 top-20 h-80 w-80 rounded-full bg-[#C89A56]/10 blur-[140px]" />
 
-  return (
-    <div>
+    <div className="absolute right-0 bottom-10 h-80 w-80 rounded-full bg-[#C89A56]/10 blur-[140px]" />
 
+    {/* Gold Line */}
 
+    <div className="absolute left-1/2 top-0 h-[2px] w-36 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
 
+    <div className="relative mx-auto w-full px-6 lg:px-18">
 
+      <div className="grid items-center gap-16 lg:grid-cols-2">
 
-{/* who we work with section*/}
+        {/* LEFT */}
 
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: .7 }}
+          viewport={{ once: true }}
+        >
 
-<section className="relative bg-gradient-to-b from-[#f8fafc] to-white py-5 md:py-10  px-4 sm:px-6 overflow-hidden">
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-9 md:gap-14 items-center">
+          <span className="inline-flex items-center rounded-full border border-[#C89A56]/40 bg-[#2A211C] px-5 py-2 text-sm font-medium uppercase tracking-[3px] text-[#C89A56]">
+            About Megha System
+          </span>
 
-    {/* LEFT */}
-    <div>
+          <h2 className="mt-8 text-4xl font-light leading-tight text-white  ">
+            About Us – Megha System | Leading Toilet Cubicle Manufacturer
+          </h2>
 
-      <span className="inline-block mb-4 px-4 py-1.5 text-xs font-semibold tracking-wider text-green-700 bg-green-50 rounded-full border border-green-100">
-        OUR PROCUREMENT PARTNERS
-      </span>
+          <div className="mt-8 h-[2px] w-24 bg-[#C89A56]" />
 
-      <h2 className="text-3xl sm:text-4xl font-bold text-[#0B2545] leading-tight mb-5">
-        Trusted by Institutional Buyers 
-        & Healthcare Procurement Teams
-      </h2>
+          <div className="mt-6 rounded-[30px] border border-[#6f5737]/60 bg-[#2A211C]/90 p-6 backdrop-blur-xl md:p-9">
 
-      <p className="text-lg text-gray-600 mb-8 max-w-xl">
-        Polywell supplies certified biomedical disposal solutions to 
-        hospitals, government bodies, and bulk procurement partners 
-        across India.
-      </p>
-
-      {/* GRID */}
-      
-      <div className="grid grid-cols-2 gap-4">
-        {partners.map((partner, index) => (
-          <div
-            key={index}
-            className="group flex items-start gap-4 p-4 rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-          >
-            <div className="w-11 h-11 flex items-center justify-center rounded-lg bg-green-50 border border-green-100">
-              <partner.icon className="w-5 h-5 text-green-700" />
-            </div>
-
-            <p className="text-sm sm:text-base font-medium text-gray-800 leading-snug">
-              {partner.title}
+            <p className="text-lg leading-9 text-white">
+              Megha System is a trusted <strong>toilet cubicle manufacturer</strong>{" "}
+              providing high-quality, durable, and modern restroom partition
+              solutions for commercial, industrial, institutional, and public
+              spaces. With a strong focus on innovation, quality, and customer
+              satisfaction, we design and manufacture premium toilet cubicles
+              that combine functionality, aesthetics, and long-lasting
+              performance.
             </p>
-          </div>
-        ))}
-      </div>
 
-      {/* CTA */}
-      <Link href="/contact" className="mt-10 inline-flex items-center gap-2 px-7 py-3 text-base font-semibold text-white bg-[#0B2545] rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
-        Become a Bulk Procurement Partner
-        <span className="text-lg">→</span>
-      </Link>
-    </div>
+          
 
-    {/* RIGHT */}
-    <div className="relative">
-      <div className="overflow-hidden rounded-2xl shadow-xl">
-        <Image
-          src="/whowework.avif"
-          alt="Healthcare Procurement"
-          width={900}
-          height={900}
-          className="w-full h-auto object-cover"
-        />
-      </div>
+            <p className="text-lg leading-9 text-white">
+              Our expertise lies in delivering customized restroom solutions
+              that meet the diverse requirements of architects, interior
+              designers, builders, contractors, and organizations across
+              various industries. From design consultation to manufacturing and
+              installation, Megha System ensures a seamless experience with
+              every project.
+            </p>
 
-      {/* FLOAT CARD */}
-      <div className="absolute bottom-5 left-5 bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-xl px-5 py-3">
-        <p className="text-sm font-semibold text-[#0B2545]">
-          Serving 500+ Healthcare Institutions
-        </p>
-      </div>
-    </div>
+            <div className="mt-8 flex flex-wrap gap-5">
 
-  </div>
-</section>
+              <Link
+                href="/contact"
+                className="group inline-flex h-14 items-center rounded-xl bg-[#C89A56] px-8 font-medium text-white hover:bg-[#b88742]"
+              >
+                Contact Us
+                <ArrowUpRight className="ml-3 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
 
+              <Link
+                href="/products"
+                className="inline-flex h-14 items-center rounded-xl border border-[#C89A56]/40 px-8 font-medium text-white hover:bg-[#C89A56]/10"
+              >
+                Explore Products
+              </Link>
 
-
-<Addons/>
-
-
-      {/* <section style={{backgroundImage:"url(/bag/catbg.webp)"}} className=" bg-cover">
-        <div className="max-w-7xl mx-auto  py-5 md:py-20">
-
-          <Reveal>
-
-
-          <div className="grid grid-cols-1 md:grid-cols-2 ">
-            <Image
-              src="/bag/try1.png"
-              alt="About Us Image"
-              width={550}
-              height={400}
-              className="mt-5"
-            />
-
-            <div className=" ">
-              <h2 className="text-3xl  text-black font-semibold mb-4">
-              Sangam Plastic Industries Pvt. Ltd – Your Trusted Garbage Bag Manufacturer
-              </h2>
-              <p className="text-black text-lg leading-relaxed">
-                Established in 1988, Sangam Plastic Industries Pvt. Ltd has become a leading Garbage Bag Manufacturer in India, providing high-quality and reliable waste management solutions for homes, hospitals, offices, hotels, and industrial sectors. With decades of experience, we specialize in producing durable garbage bags, disposable bio dustbin bags, hospital garbage bags and other waste management products.
-
-              </p>
-               
-<p className="mt-3 text-lg leading-relaxed">As a reputed Disposable Bio Dustbin Bag Manufacturer and Hospital Garbage Bag Manufacturer, we focus on delivering products that meet the highest standards of hygiene, strength, and environmental responsibility. Our solutions are designed to support efficient waste disposal, improve cleanliness, and promote sustainable practices across diverse industries.
-With modern manufacturing facilities in Delhi, advanced machinery, and a skilled workforce, we combine innovation, quality, and customer satisfaction to provide dependable, eco-friendly, and long-lasting products. At Sangam Plastic Industries Pvt. Ltd, we aim to be your trusted partner for all waste management needs, offering customizable solutions, bulk orders.</p>
-            
             </div>
-          </div>
-          </Reveal>
-        </div>
-      </section> */}
-    </div>
-  );
-};
 
-export default About;
+          </div>
+
+        </motion.div>
+
+        {/* RIGHT */}
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: .7 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+
+          <div className="overflow-hidden rounded-[32px] border border-[#6f5737]/60 bg-[#2A211C] p-3">
+
+            <Swiper
+              modules={[Autoplay, Pagination, EffectFade]}
+              effect="fade"
+              loop
+              speed={900}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              className="aboutSwiper rounded-[24px]"
+            >
+
+              {images.map((image, index) => (
+
+                <SwiperSlide key={index}>
+
+                  <div className="relative h-[650px] overflow-hidden rounded-[24px]">
+
+                    <Image
+                      src={image}
+                      alt={`About ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+
+                  </div>
+
+                </SwiperSlide>
+
+              ))}
+
+            </Swiper>
+
+          </div>
+
+        </motion.div>
+
+      </div>
+
+    </div>
+
+  </section>
+);
+}

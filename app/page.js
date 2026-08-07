@@ -26,14 +26,14 @@ export default function Home() {
        <Countup />
      
             <Categories />
-            
+              <About />
             <Whychoose />
               <Process></Process>
                 <Cta></Cta>
               <Otherproduct></Otherproduct>
          <TestimonialSlider></TestimonialSlider>
       {/* 
-      <About />
+    
       <Pointer></Pointer>
      
      
