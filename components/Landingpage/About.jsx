@@ -65,7 +65,7 @@ return (
             About Us – Megha System | Leading Toilet Cubicle Manufacturer
           </h2>
 
-          <div className="mt-8 h-[2px] w-24 bg-[#C89A56]" />
+          <div className="mt-5 h-[2px] w-24 bg-[#C89A56]" />
 
           <div className="mt-6 rounded-[30px] border border-[#6f5737]/60 bg-[#2A211C]/90 p-6 backdrop-blur-xl md:p-9">
 

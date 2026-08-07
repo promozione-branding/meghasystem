@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { categories } from "@/Data";
 import {
   ChevronDown,
   Phone,
@@ -46,12 +47,7 @@ export default function Navbar() {
       title: "Projects",
       href: "/projects",
     },
-    {
-      title: "Resources",
-      href: "#",
-      dropdown: true,
-      type: "resources",
-    },
+  
     {
       title: "Contact Us",
       href: "/contact",
@@ -98,121 +94,81 @@ export default function Navbar() {
 
               <ul className="flex items-center list-none">
 
-                {navLinks.map((item, index) => (
+{navLinks.map((item, index) => (
+  <li
+    key={index}
+    className="relative list-none"
+    onMouseEnter={() => {
+      if (item.type === "products") setProductOpen(true);
+    }}
+    onMouseLeave={() => {
+      if (item.type === "products") setProductOpen(false);
+    }}
+  >
+    <Link
+      href={item.href}
+      className="flex h-[82px] items-center gap-1 px-6 text-[15px] font-medium text-white transition hover:text-[#d7ad67]"
+    >
+      {item.title}
 
-                  <li
-                    key={index}
-                    className="relative list-none "
-                    onMouseEnter={() => {
-                      if (item.type === "products")
-                        setProductOpen(true);
+      {item.dropdown && (
+        <ChevronDown
+          size={16}
+          className={`transition ${
+            item.type === "products" && productOpen
+              ? "rotate-180"
+              : ""
+          }`}
+        />
+      )}
+    </Link>
 
-                      if (item.type === "resources")
-                        setResourceOpen(true);
-                    }}
-                    onMouseLeave={() => {
-                      if (item.type === "products")
-                        setProductOpen(false);
+    {/* Gold Line */}
+    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ad67] transition-all duration-300 group-hover:w-full"></span>
 
-                      if (item.type === "resources")
-                        setResourceOpen(false);
-                    }}
+    {/* Products Mega Menu */}
+    {item.type === "products" && productOpen && (
+      <div className="absolute left-1/2 top-full z-50 w-[950px] -translate-x-1/2 rounded-2xl border border-[#6d5330] bg-[#241b15] p-8 shadow-2xl">
+
+        <div className="grid grid-cols-3 gap-8">
+
+          {categories.map((category) => (
+            <div key={category.id}>
+
+              {/* Category */}
+
+              <Link
+                href={`/categories/${category.id}`}
+                className="mb-4 block border-b border-[#6d5330]/40 pb-2 text-lg font-semibold text-[#d7ad67]"
+              >
+                {category.name}
+              </Link>
+
+              {/* Products */}
+
+              <div className="space-y-1">
+
+                {category.products.map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/products/${product.id}`}
+                    className="block rounded-lg px-3 py-2 text-sm text-white/70 transition-all duration-300 hover:bg-[#32251d] hover:pl-5 hover:text-[#d7ad67]"
                   >
-                    <Link
-                      href={item.href}
-                      className="flex h-[82px] items-center gap-1 px-6 text-[15px] font-medium text-white transition hover:text-[#d7ad67]"
-                    >
-                      {item.title}
-
-                      {item.dropdown && (
-                        <ChevronDown
-                          size={16}
-                          className={`transition ${
-                            (item.type === "products" &&
-                              productOpen) ||
-                            (item.type === "resources" &&
-                              resourceOpen)
-                              ? "rotate-180"
-                              : ""
-                          }`}
-                        />
-                      )}
-                    </Link>
-
-                    {/* Gold Line */}
-
-                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ad67] transition-all duration-300 group-hover:w-full"></span>
-
-                   
-                    {item.type === "products" &&
-                      productOpen && (
-                        <div className="absolute left-0 top-full w-[280px] rounded-xl border border-[#6d5330] bg-[#241b15] p-3 shadow-2xl">
-
-                          <Link
-                            href="/products/toilet-cubicles"
-                            className="block rounded-lg px-4 py-3 text-white transition hover:bg-[#32251d]"
-                          >
-                            Toilet Cubicles
-                          </Link>
-
-                          <Link
-                            href="/products/urinal-partitions"
-                            className="block rounded-lg px-4 py-3 text-white transition hover:bg-[#32251d]"
-                          >
-                            Urinal Partitions
-                          </Link>
-
-                          <Link
-                            href="/products/shower-cubicles"
-                            className="block rounded-lg px-4 py-3 text-white transition hover:bg-[#32251d]"
-                          >
-                            Shower Cubicles
-                          </Link>
-
-                          <Link
-                            href="/products/accessories"
-                            className="block rounded-lg px-4 py-3 text-white transition hover:bg-[#32251d]"
-                          >
-                            Accessories
-                          </Link>
-
-                        </div>
-                      )}
-
-                   
-
-                    {item.type === "resources" &&
-                      resourceOpen && (
-                        <div className="absolute left-0 top-full w-[250px] rounded-xl border border-[#6d5330] bg-[#241b15] p-3 shadow-2xl">
-
-                          <Link
-                            href="/blogs"
-                            className="block rounded-lg px-4 py-3 text-white hover:bg-[#32251d]"
-                          >
-                            Blogs
-                          </Link>
-
-                          <Link
-                            href="/catalogue"
-                            className="block rounded-lg px-4 py-3 text-white hover:bg-[#32251d]"
-                          >
-                            Catalogue
-                          </Link>
-
-                          <Link
-                            href="/downloads"
-                            className="block rounded-lg px-4 py-3 text-white hover:bg-[#32251d]"
-                          >
-                            Downloads
-                          </Link>
-
-                        </div>
-                      )}
-
-                  </li>
-
+                    {product.name}
+                  </Link>
                 ))}
 
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    )}
+  </li>
+))} 
               </ul>
 
             </nav>

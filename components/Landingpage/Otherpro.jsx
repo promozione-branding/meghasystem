@@ -53,7 +53,7 @@ export default function Industries() {
             Industries We Serve
           </h2>
 
-          <p className="mt-6 text-white/60 max-w-2xl mx-auto">
+          <p className="mt-4 text-white max-w-2xl mx-auto">
             Delivering premium compact laminate washroom systems for
             diverse commercial, institutional and public infrastructure
             projects.

@@ -33,7 +33,7 @@ export default function CategoryPage({ params }) {
     <>
       {/* Hero Section */}
       <section
-        style={{ backgroundImage: "url('/bag/bg-other.webp')" }}
+        style={{ backgroundImage: "url('/hero1.jpg')" }}
         className="w-full bg-cover bg-center h-[50vh] md:h-[90vh] relative"
       >
         <div className="px-5 absolute inset-0 text-center flex items-center justify-center ">
