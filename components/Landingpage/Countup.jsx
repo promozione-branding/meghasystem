@@ -10,14 +10,14 @@ import "swiper/css/navigation";
 const logos = [
  
 
-  "/client/4.png",
-   "/client/4.png",
-    "/client/4.png",
-     "/client/4.png",
-      "/client/4.png",
-       "/client/4.png",
-
- "/client/4.png",
+ 
+   "/client2.png",
+    "/image.jpg",
+     "/client4.webp",
+      "/client5.webp",
+       "/client6.png",
+ "/client7.png",
+ "/radisson.jfif"
 
 ];
 
@@ -79,7 +79,7 @@ export default function ClienteleSlider() {
                 <Image
                   src={logo}
                   alt=""
-                  width={140}
+                  width={100}
                   height={70}
                   className="object-contain  group-hover:scale-110"
                 />

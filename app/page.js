@@ -16,7 +16,7 @@ import Dedicated from "@/components/Landingpage/Dedicated";
 import Otherproduct from "@/components/Landingpage/Otherpro";
 
 import Loactions from "@/components/Locations";
-
+import Addons from "@/components/Landingpage/Addons"
 
 export default function Home() {
   return (
@@ -29,7 +29,9 @@ export default function Home() {
               <About />
             <Whychoose />
               <Process></Process>
+              <Addons></Addons>
                 <Cta></Cta>
+                 <Dedicated></Dedicated>
               <Otherproduct></Otherproduct>
          <TestimonialSlider></TestimonialSlider>
       {/* 
@@ -39,7 +41,7 @@ export default function Home() {
      
       <Whoweare />
       
-      <Dedicated></Dedicated>
+     
 
       <Formsection></Formsection>
     

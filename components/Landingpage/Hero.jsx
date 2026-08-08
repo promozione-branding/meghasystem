@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect } from "react";
+import {  useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const fadeUp = {
   hidden: {
@@ -22,6 +24,29 @@ const fadeUp = {
 };
 
 export default function Hero() {
+
+
+const heroImages = [
+   "/hero3.webp",
+  "/hero1.jpg",
+  "/hero2.jfif",
+ 
+];
+
+const [currentBg, setCurrentBg] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentBg((prev) => (prev + 1) % heroImages.length);
+  }, 5000); 
+  return () => clearInterval(interval);
+}, []);
+
+
+
+
+
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -52,40 +77,54 @@ export default function Hero() {
   return (
     <section className="relative   h-[120vh] overflow-hidden bg-black">
 
-      {/* Noise Texture */}
+ 
+<div className="absolute inset-0 overflow-hidden">
 
-      <div
-        className="absolute inset-0 opacity-[0.04] z-20 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%,rgba(255,255,255,.08) 1px,transparent 1px)",
-          backgroundSize: "18px 18px",
-        }}
+  <AnimatePresence initial={false}>
+
+    <motion.div
+      key={currentBg}
+      initial={{
+        opacity: 0,
+        scale: 1.12,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+      }}
+      exit={{
+        opacity: 0,
+      }}
+      transition={{
+        duration: 1.4,
+      }}
+      className="absolute inset-0"
+      style={{
+        x,
+        y,
+      }}
+    >
+
+      <Image
+        src={heroImages[currentBg]}
+        alt="Hero Background"
+        fill
+        priority
+        className="object-cover"
       />
+
+    </motion.div>
+
+  </AnimatePresence>
+
+</div>
+
+{/* Dark Overlay */}
+<div className="absolute inset-0 -z-10 bg-black/40" />
+
 
  
 
-      <motion.div
-        initial={{ scale: 1.15 }}
-        animate={{ scale: 1 }}
-        transition={{
-          duration: 8,
-          ease: "easeOut",
-        }}
-        style={{
-          x,
-          y,
-        }}
-        className="absolute inset-0"
-      >
-        <Image
-          src="/hero3.webp"
-          alt="Hero"
-          fill
-          priority
-          className="object-cover"
-        />
-      </motion.div>
 
       {/* Dark Overlay */}
 
@@ -98,10 +137,9 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0 bg-black/10"
       />
 
-      {/* Gradient */}
 
       <motion.div
         animate={{
@@ -115,8 +153,7 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-black/20"
       />
 
-      {/* Animated Gold Light */}
-
+  
       <motion.div
         animate={{
           x: [0, 80, 0],
@@ -145,8 +182,7 @@ export default function Hero() {
         className="absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-[#C89A56]/10 blur-[170px]"
       />
 
-      {/* Floating Particles */}
-
+ 
       {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
@@ -176,7 +212,7 @@ export default function Hero() {
         />
       ))}
 
-      {/* Animated Vertical Line */}
+    
 
       <motion.div
         animate={{
@@ -198,48 +234,35 @@ export default function Hero() {
 <motion.div
   initial="hidden"
   animate="visible"
-  className="relative max-w-4xl mb-20"
+  className="relative z-10 mb-20 flex w-full flex-col items-center justify-center text-center"
 >
   {/* Badge */}
-
   <motion.div
     custom={0.1}
     variants={fadeUp}
-    className="inline-flex items-center gap-3 rounded-full border border-[#C89A56]/30 bg-white/5 backdrop-blur-xl px-5 py-2"
+    className="inline-flex items-center gap-3 rounded-full border border-[#C89A56]/30 bg-white/5 px-5 py-2 backdrop-blur-xl"
   >
-    <span className="h-2 w-2 rounded-full bg-[#C89A56] animate-pulse"></span>
+    <span className="h-2 w-2 animate-pulse rounded-full bg-[#C89A56]" />
 
-    <span className="uppercase tracking-[3px] text-xs md:text-sm text-[#C89A56] font-semibold">
+    <span className="text-xs font-semibold uppercase tracking-[3px] text-[#C89A56] md:text-sm">
       Premium Washroom Solutions
     </span>
   </motion.div>
 
   {/* Heading */}
-
   <motion.h1
     custom={0.3}
     variants={fadeUp}
-    className="mt-6 text-white font-serif font-light leading-[1.02]
-    text-5xl md:text-6xl xl:text-7xl"
+    className="mx-auto mt-6 max-w-7xl text-center font-serif text-5xl font-light leading-[1.05] text-white md:text-6xl xl:text-7xl"
   >
-    Crafted for {" "}
-
-
-    <span className="text-[#C89A56] relative inline-block">
-
+    Crafted for{" "}
+    <span className="relative inline-block text-[#C89A56]">
       Privacy.
-
       <motion.span
-        animate={{
-          scaleX: [0, 1],
-        }}
-        transition={{
-          duration: 1.2,
-          delay: 1,
-        }}
-        className="absolute left-0 bottom-1 h-[2px] w-full bg-[#C89A56] origin-left"
+        animate={{ scaleX: [0, 1] }}
+        transition={{ duration: 1.2, delay: 1 }}
+        className="absolute bottom-1 left-0 h-[2px] w-full origin-left bg-[#C89A56]"
       />
-
     </span>
 
     <br />
@@ -248,104 +271,52 @@ export default function Hero() {
   </motion.h1>
 
   {/* Description */}
-
   <motion.p
     custom={0.5}
     variants={fadeUp}
-    className="mt-6 max-w-2xl text-lg md:text-xl leading-9 text-white"
+    className="mx-auto mt-8 max-w-5xl text-center text-lg leading-9 text-white/90 md:text-xl"
   >
-    Manufacturing premium toilet cubicles, urinal partitions, shower cubicles, compact laminate systems, and washroom accessories tailored to your project requirements across India.
+    Manufacturing premium toilet cubicles, urinal partitions, shower
+    cubicles, compact laminate systems, and washroom accessories tailored to
+    your project requirements across India.
   </motion.p>
 
   {/* Buttons */}
-
   <motion.div
     custom={0.7}
     variants={fadeUp}
-    className="mt-8 flex flex-wrap gap-5"
+    className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row"
   >
     {/* Quote Button */}
-
-    <button className="group relative overflow-hidden h-16 rounded-xl bg-[#C89A56] px-9 text-white font-medium shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-[#C89A56]/50">
-
-      {/* Shine */}
-
-      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></span>
+    <button className="group relative flex h-16 items-center justify-center overflow-hidden rounded-xl bg-[#C89A56] px-9 font-medium text-white shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-[#C89A56]/50">
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
       <span className="relative flex items-center gap-4">
-
         Get Free Quote
 
         <ArrowRight
           size={22}
           className="transition duration-300 group-hover:translate-x-1"
         />
-
       </span>
-
     </button>
 
-    {/* Catalogue */}
-
-    <button className="group relative overflow-hidden h-16 rounded-xl border border-white/15 bg-white/5 backdrop-blur-xl px-9 text-white transition-all duration-500 hover:scale-105 hover:border-[#C89A56]/40 hover:bg-white/10">
-
-      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-1000 group-hover:translate-x-full"></span>
+    {/* Catalogue Button */}
+    <button className="group relative flex h-16 items-center justify-center overflow-hidden rounded-xl border border-white/15 bg-white/5 px-9 text-white backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:border-[#C89A56]/40 hover:bg-white/10">
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
       <span className="relative flex items-center gap-4">
-
         Download Catalogue
 
         <Download
           size={20}
           className="transition duration-300 group-hover:-translate-y-1"
         />
-
       </span>
-
     </button>
   </motion.div>
-
-  {/* Experience Card */}
-
- 
 </motion.div>
 
-{/* Scroll Indicator */}
-
-<motion.div
-  animate={{
-    y: [0, 10, 0],
-  }}
-  transition={{
-    duration: 2,
-    repeat: Infinity,
-  }}
-  className="absolute bottom-8 left-1/2 -translate-x-1/2"
->
-  <div className="flex flex-col items-center gap-3">
-
-    <span className="text-[11px] uppercase tracking-[4px] text-white/60">
-      Scroll
-    </span>
-
-    <div className="flex h-12 w-7 justify-center rounded-full border border-white/30">
-
-      <motion.div
-        animate={{
-          y: [0, 14, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 1.8,
-        }}
-        className="mt-2 h-2 w-2 rounded-full bg-[#C89A56]"
-      />
-
-    </div>
-
-  </div>
-
-</motion.div>
 
 
       </div>
@@ -369,7 +340,7 @@ export default function Hero() {
 >
   <div className=" mt-16 relative overflow-hidden rounded-[28px] border border-white/10 bg-white/8 backdrop-blur-3xl shadow-[0_35px_80px_rgba(0,0,0,.35)]">
 
-    {/* Animated Glow */}
+
 
     <motion.div
       animate={{
@@ -383,7 +354,6 @@ export default function Hero() {
       className="absolute top-0 h-full w-44 bg-gradient-to-r from-transparent via-white/10 to-transparent blur-xl"
     />
 
-    {/* Top Border */}
 
     <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#C89A56] to-transparent" />
 
@@ -428,8 +398,7 @@ export default function Hero() {
               : ""
           }`}
         >
-          {/* Gold Circle */}
-
+    
           <motion.div
             animate={{
               scale: [1, 1.08, 1],
@@ -469,7 +438,7 @@ export default function Hero() {
   </div>
 </motion.div>
 
-{/* Decorative Corner Accent */}
+
 
 <motion.div
   animate={{

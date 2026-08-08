@@ -16,6 +16,7 @@ export async function generateMetadata({ params }) {
   return {
     title: category.metaTitle,
     description: category.metaDescription,
+    
   };
 }
 

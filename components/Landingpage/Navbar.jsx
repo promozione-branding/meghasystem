@@ -60,8 +60,8 @@ export default function Navbar() {
         className={`fixed left-0 top-0 z-[999] w-full transition-all duration-500
         ${
           isScrolled
-            ? "bg-[#1b140f]/55 backdrop-blur-xl shadow-2xl border-b border-[#6d5330]"
-            : "bg-[#1b140f]/40 backdrop-blur-md"
+            ? "bg-[#1b140f]/75  border-b border-[#6d5330]"
+            : "bg-[#1b140f]/10 "
         }`}
       >
         <div className="mx-auto max-w-[1450px] px-6">
@@ -107,7 +107,7 @@ export default function Navbar() {
   >
     <Link
       href={item.href}
-      className="flex h-[82px] items-center gap-1 px-6 text-[15px] font-medium text-white transition hover:text-[#d7ad67]"
+      className="flex h-[82px] items-center gap-1 px-6 text-[17px] font-medium text-white transition hover:text-[#d7ad67]"
     >
       {item.title}
 
@@ -123,10 +123,10 @@ export default function Navbar() {
       )}
     </Link>
 
-    {/* Gold Line */}
+  
     <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#d7ad67] transition-all duration-300 group-hover:w-full"></span>
 
-    {/* Products Mega Menu */}
+   
     {item.type === "products" && productOpen && (
       <div className="absolute left-1/2 top-full z-50 w-[950px] -translate-x-1/2 rounded-2xl border border-[#6d5330] bg-[#241b15] p-8 shadow-2xl">
 
@@ -135,7 +135,6 @@ export default function Navbar() {
           {categories.map((category) => (
             <div key={category.id}>
 
-              {/* Category */}
 
               <Link
                 href={`/categories/${category.id}`}
@@ -144,7 +143,6 @@ export default function Navbar() {
                 {category.name}
               </Link>
 
-              {/* Products */}
 
               <div className="space-y-1">
 
@@ -183,7 +181,7 @@ export default function Navbar() {
               >
                 <Phone size={18} />
 
-                <span className="text-[15px]">
+                <span className="text-[17px]">
                   +91 91718 14444
                 </span>
               </a>

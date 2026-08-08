@@ -1,208 +1,221 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { ArrowRight,  } from "lucide-react";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import { X, MapPin } from "lucide-react";
 
-export default function GarbageBagSection() {
-  const [active, setActive] = useState(null);
+export default function OurProjects() {
 
-const accordionData = [
+
+
+const projects = [
   {
-    title: "Garbage Bag Manufacturer",
-    desc: (
-      <>
-        <p className="mb-4 text-white text-lg">
-          As a trusted Garbage Bag Manufacturer, Sangam Plastic Industries Pvt. Ltd produces
-          high-quality, tear-resistant garbage bags designed for efficient waste management.
-          Our bags are suitable for homes, offices, industries, and commercial spaces.
-        </p>
-
-        <h4 className="text-emerald-400 text-xl font-medium mb-2">
-          Why Choose Our Garbage Bags:
-        </h4>
-
-        <ul className="list-disc pl-5 space-y-1 text-white text-lg mb-4">
-          <li>Superior Strength: Leak-proof and tear-resistant material.</li>
-          <li>Multiple Sizes: Available in various capacities.</li>
-          <li>Eco-Friendly Options: Designed with sustainability in mind.</li>
-        </ul>
-
-        <p className="text-lg text-white mb-4">
-          Whether for daily household waste or heavy-duty industrial disposal,
-          our garbage bags deliver reliable performance every time.
-        </p>
-
-        <Link href="/products" className="px-4 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600 text-lg">
-          Explore Garbage Bags
-        </Link>
-      </>
-    ),
+    id: 1,
+    title: "Corporate Office Washroom",
+    location: "Gurugram",
+    category: "Toilet Cubicles",
+    image: "/metroindus.jpg",
+    description:
+      "Premium compact laminate toilet cubicles installed for a modern corporate office with elegant finishes and superior privacy."
   },
-
   {
-    title: "Disposable Bag Manufacturer",
-    desc: (
-      <>
-        <p className="mb-4 text-white text-lg">
-          As a leading Disposable Bag Manufacturer, we offer a wide range of
-          disposable waste bags suitable for residential, commercial, and
-          industrial applications.
-        </p>
-
-        <h4 className="text-emerald-400 font-medium mb-2 text-xl">
-          Key Features:
-        </h4>
-
-        <ul className="list-disc pl-5 space-y-1 text-lg mb-4 text-white">
-          <li>High Durability: Prevents leakage and tearing.</li>
-          <li>Convenient Usage: Easy to handle and dispose.</li>
-          <li>Custom Sizes & Thickness available.</li>
-        </ul>
-
-        <p className="text-lg mb-4 text-white">
-          Businesses and households across India trust Sangam Plastic
-          Industries Pvt. Ltd for dependable disposable waste solutions.
-        </p>
-
-        <Link href="/products" className="px-4 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600 text-lg">
-          Explore Disposable Bags
-        </Link>
-      </>
-    ),
+    id: 2,
+    title: "Luxury Shopping Mall",
+    location: "Delhi",
+    category: "Urinal Partitions",
+    image: "/indus1.jpg",
+    description:
+      "Custom-designed urinal partitions manufactured with high-pressure compact laminate for long-lasting performance."
   },
-
   {
-    title: "Hospital Garbage Bag Manufacturer",
-    desc: (
-      <>
-        <p className="mb-4 text-white text-lg">
-          As a reliable Hospital Garbage Bag Manufacturer, we provide specialized
-          garbage bags designed for safe biomedical and hazardous waste disposal.
-        </p>
-
-        <h4 className="text-emerald-400 font-medium mb-2 text-xl">
-          Key Benefits:
-        </h4>
-
-        <ul className="list-disc pl-5 space-y-1 text-lg text-white mb-4">
-          <li>Biomedical Waste Compliance.</li>
-          <li>Color-Coded Options.</li>
-          <li>Strong & Leak-Proof.</li>
-        </ul>
-
-        <p className="text-lg mb-4 text-white">
-          Hospitals rely on Sangam Plastic Industries Pvt. Ltd for hygienic,
-          durable, and regulation-compliant garbage bag solutions.
-        </p>
-
-        <Link href="/products" className="px-4 py-2 rounded-md bg-emerald-500 text-white hover:bg-emerald-600 text-lg">
-          Explore Hospital Garbage Bags
-        </Link>
-      </>
-    ),
+    id: 3,
+    title: "Five Star Hotel",
+    location: "Mumbai",
+    category: "Shower Cubicles",
+    image: "/2pro.jfif",
+    description:
+      "Premium shower cubicle installation with modern aesthetics and moisture-resistant compact laminate panels."
+  },
+  {
+    id: 4,
+    title: "International Airport",
+    location: "Bengaluru",
+    category: "Washroom Accessories",
+   image: "/indus1.jpg",
+    description:
+      "Complete washroom solution including cubicles, partitions and accessories for high traffic public spaces."
+  },
+  {
+    id: 5,
+    title: "University Campus",
+    location: "Pune",
+    category: "Toilet Cubicles",
+     image: "/mallsindus.webp",
+    description:
+      "Large-scale washroom cubicle installation designed for durability, hygiene and minimal maintenance."
+  },
+  {
+    id: 6,
+    title: "Hospital Project",
+    location: "Ahmedabad",
+    category: "Compact Laminate",
+    image: "/1pro.avif",
+    description:
+      "Hygienic compact laminate washroom systems designed specifically for healthcare environments."
   },
 ];
 
 
+
+
+
+  const [selected, setSelected] = useState(null);
+
   return (
-    <section className="w-full py-8 px-6 md:px-16 lg:px-20 bg-gradient-to-r from-[#062B22] via-[#083F33] to-[#021B15] text-white relative overflow-hidden">
+    <section className="bg-[#241B16] py-12">
+      <div className="mx-auto w-full px-20">
 
-      <div className=" mx-auto grid md:grid-cols-2 gap-14 items-center">
+        <div className="text-center">
 
-        {/* LEFT CONTENT */}
-        <div>
+          <span className="rounded-full border border-[#C89A56]/30 px-5 py-2 text-sm uppercase tracking-[3px] text-[#C89A56]">
+            Portfolio
+          </span>
 
-          <h1 className="text-3xl  font-bold leading-snug mb-4">
-          Premium Garbage Bags, Disposable Waste Bags & Hospital Garbage Bags Supplier
+          <h2 className="mt-4 text-5xl font-light text-white">
+            Our Recent Projects
+          </h2>
 
-            
-          </h1>
-
-          <p className="text-white mb-7 text-lg leading-relaxed max-w-xl">
-            Sangam Plastic Industries Pvt. Ltd produces high-quality, tear-resistant
-            garbage bags designed for efficient waste management across homes,
-            offices, industries, and commercial spaces.
+          <p className="mx-auto mt-4 max-w-5xl text-lg text-white">
+            Delivering premium toilet cubicles, urinal partitions, shower cubicles,
+            and compact laminate washroom solutions across commercial,
+            industrial and institutional projects.
           </p>
-
-          {/* ACCORDION */}
-
-          <div className="space-y-4">
-            {accordionData.map((item, i) => (
-              <div
-                key={i}
-                className="bg-white/15 backdrop-blur-lg border border-white/10 rounded-xl p-5 cursor-pointer transition"
-                onClick={() => setActive(active === i ? null : i)}
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-white text-xl font-semibold">
-                    {item.title}
-                  </h3>
-                  <ChevronDown
-                    className={`transition-transform duration-300 ${
-                      active === i ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-
-                {active === i && (
-                 <div className="text-gray-300 mt-3 text-sm">
-  {item.desc}
-</div>
-                )}
-              </div>
-            ))}
-          </div>
-
-        {/* BUTTON */}
-              <motion.button
-                        whileHover={{ scale: 1.08 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="relative flex  mt-10 items-center gap-2 bg-yellow-500 text-white px-6 py-4 cursor-pointer rounded-xl font-medium overflow-hidden"
-                      >
-                        <Link href="/products"className="relative z-10">Explore Garbage Bags</Link>
-                        <ArrowRight size={19} />
-            
-                        {/* Shine Effect */}
-                        <motion.div
-                          animate={{ x: ["-100%", "200%"] }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 2,
-                            ease: "linear"
-                          }}
-                          className="absolute top-0 left-0 w-1/2 h-full bg-white/40 skew-x-12"
-                        />
-                      </motion.button>
-
-          
-        <Image width={300} height={300} src="/bag/binwhite.png" alt="Garbage Bags" className="absolute bottom-0 left-100 "></Image>
 
         </div>
 
-        {/* RIGHT IMAGE VIDEO STYLE */}
-        <div className="relative    overflow-hidden  ">
-          <Image
-            src="/bag/dedicated.webp"
-            alt="Factory"
-            
-            width={520}
-            height={400}
-            className="object-contain md:ml-10 "
-          />
+      <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+  {projects.map((project) => (
+    <motion.div
+      key={project.id}
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.35 }}
+      onClick={() => setSelected(project)}
+      className="group cursor-pointer overflow-hidden rounded-3xl"
+    >
+      <div className="relative h-[360px] overflow-hidden">
 
-      
-      
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-cover transition duration-700 group-hover:scale-110"
+        />
 
-         
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-       
+        {/* Category */}
+        <span className="absolute left-5 top-5 rounded-full bg-[#C89A56] px-4 py-2 text-xs font-semibold tracking-wider text-white">
+          {project.category}
+        </span>
+
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 w-full p-6">
+
+          <h3 className="text-2xl font-semibold text-white transition duration-300 group-hover:text-[#C89A56]">
+            {project.title}
+          </h3>
+
+          <div className="mt-3 flex items-center gap-2 text-white/80">
+            <MapPin size={17} className="text-[#C89A56]" />
+            <span>{project.location}</span>
+          </div>
+
         </div>
 
       </div>
+    </motion.div>
+  ))}
+</div>
+      </div>
+
+     
+
+      <AnimatePresence>
+
+        {selected && (
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-5 backdrop-blur-sm"
+          >
+
+            <motion.div
+              initial={{ scale: .8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: .8, opacity: 0 }}
+              transition={{ duration: .35 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative grid max-w-6xl overflow-hidden rounded-[35px] bg-white lg:grid-cols-2"
+            >
+
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute right-5 top-5 z-20 rounded-full bg-white p-2 shadow-xl"
+              >
+                <X />
+              </button>
+
+              <div className="relative h-[350px] lg:h-[650px]">
+
+                <Image
+                  src={selected.image}
+                  alt={selected.title}
+                  fill
+                  className="object-cover"
+                />
+
+              </div>
+
+              <div className="flex flex-col justify-center p-12">
+
+                <span className="mb-5 inline-block rounded-full bg-[#C89A56]/10 px-5 py-2 font-medium text-[#C89A56]">
+                  {selected.category}
+                </span>
+
+                <h3 className="text-5xl font-light">
+                  {selected.title}
+                </h3>
+
+                <div className="mt-5 flex items-center gap-2 text-[#C89A56]">
+
+                  <MapPin />
+
+                  {selected.location}
+
+                </div>
+
+                <p className="mt-8 text-lg leading-9 text-gray-600">
+                  {selected.description}
+                </p>
+
+                <button className="mt-10 w-fit rounded-xl bg-[#C89A56] px-8 py-4 text-white transition hover:bg-[#b68643]">
+                  Contact Us for Similar Projects
+                </button>
+
+              </div>
+
+            </motion.div>
+
+          </motion.div>
+
+        )}
+
+      </AnimatePresence>
     </section>
   );
 }

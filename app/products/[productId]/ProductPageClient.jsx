@@ -476,11 +476,11 @@ const finishes = [
   </div>
 </section>
  
-<section className="relative overflow-hidden bg-[#EDEAE5] bg-cover bg-center pt-5">
+<section className="relative overflow-hidden bg-[#EDEAE5] bg-cover bg-center ">
 
 
 
-<section className="bg-[#f8f6f3] py-16">
+<section style={{backgroundImage:"url(/check5.jpg)"}} className="bg-cover bg-center py-16">
   <div className="w-full mx-auto px-20">
 
     <div className="grid lg:grid-cols-2 gap-8">

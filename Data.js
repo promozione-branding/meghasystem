@@ -17,15 +17,18 @@ export const categories = [
     products: [
       // product 1
 {
-  id: "mall-toilet-cubicle",
-  name: "Mall Toilet Cubicle",
+  id: "neo-series-toilet-cubicles",
+
+  name: "Neo Series Toilet Cubicles",
+
   metaTitle:
-    "Mall Toilet Cubicle Manufacturer | Premium Compact Laminate Toilet Cubicles",
+    "Neo Series Toilet Cubicles Manufacturer | Premium Compact Laminate Toilet Cubicles",
+
   metaDescription:
-    "Premium Mall Toilet Cubicles manufactured using compact laminate (HPL) panels with stainless steel hardware. Ideal for shopping malls, airports, offices, hotels, hospitals and commercial washrooms.",
+    "Premium Neo Series Toilet Cubicles manufactured using compact laminate (HPL) panels with stainless steel hardware. Ideal for shopping malls, airports, offices, hotels, hospitals and commercial washrooms.",
 
   overview:
-    "Our Mall Toilet Cubicles are manufactured using premium Compact Laminate (HPL) panels and high-quality stainless steel hardware to deliver privacy, durability, and elegant aesthetics for modern commercial washrooms.",
+    "Our Neo Series Toilet Cubicles are manufactured using premium Compact Laminate (HPL) panels and high-quality stainless steel hardware to deliver privacy, durability, and elegant aesthetics for modern commercial washrooms.",
 
   features: [
     "Manufactured using premium Compact Laminate (HPL) panels for superior durability.",
@@ -43,7 +46,7 @@ export const categories = [
     {
       type: "ul",
       items: [
-        "Our Mall Toilet Cubicles are designed to provide complete privacy while enhancing the appearance of modern commercial washrooms.",
+        "Our Neo Series Toilet Cubicles are designed to provide complete privacy while enhancing the appearance of modern commercial washrooms.",
         "Manufactured from premium Compact Laminate (HPL) panels, these cubicles are engineered to withstand heavy daily usage in high-traffic public spaces.",
         "The moisture-resistant and anti-bacterial surface makes them ideal for hygienic washroom environments.",
         "Stainless Steel 304 Grade hardware provides excellent corrosion resistance and long-lasting performance.",
@@ -65,22 +68,6 @@ export const categories = [
         "Width – Available as per project requirements.",
         "Finish – Matte, Glossy, Wooden Texture & Solid Colors.",
         "Installation – Easy and quick installation with adjustable stainless steel legs."
-      ]
-    },
-
-    {
-      type: "h2",
-      text: "Key Features"
-    },
-    {
-      type: "ul",
-      items: [
-        "Complete privacy with full-height partition system.",
-        "Scratch, moisture and impact resistant construction.",
-        "Elegant modern appearance with multiple finish options.",
-        "Anti-bacterial surface for hygienic washroom environments.",
-        "Low maintenance and easy to clean.",
-        "Long service life even in high traffic commercial areas."
       ]
     },
 
@@ -145,10 +132,19 @@ export const categories = [
   ],
 
   image: [
-    {
+     {
       src: "/mall-toilet-cubicle.png",
       alt: "Mall Toilet Cubicle"
-    }
+    },
+   {
+      src: "/mall-toilet-cubicle.png",
+      alt: "Mall Toilet Cubicle"
+    },
+      {
+      src: "/mall-toilet-cubicle.png",
+      alt: "Mall Toilet Cubicle"
+    },
+
   ]
 }
 

@@ -91,7 +91,7 @@ export default function Industries() {
     <SwiperSlide key={index}>
       <div className="group relative h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#221A16]">
 
-        {/* Image */}
+    
 
         <Image
           src={item.image}
@@ -100,11 +100,11 @@ export default function Industries() {
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
-        {/* Overlay */}
+      
 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-        {/* Content */}
+       
 
         <div className="absolute bottom-0 left-0 p-8">
 
@@ -127,7 +127,7 @@ export default function Industries() {
 
         </div>
 
-        {/* Bottom Gold Line */}
+   
 
         <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#C89A56] transition-all duration-500 group-hover:w-full" />
 
