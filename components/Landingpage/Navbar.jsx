@@ -35,7 +35,7 @@ export default function Navbar() {
     },
     {
       title: "About Us",
-      href: "/about",
+      href: "/#",
     },
     {
       title: "Products",
@@ -50,7 +50,7 @@ export default function Navbar() {
   
     {
       title: "Contact Us",
-      href: "/contact",
+      href: "/#",
     },
   ];
 
